@@ -236,3 +236,12 @@ html[data-figma-dark="true"] .figma-site img{filter:invert(1) hue-rotate(180deg)
 .figma-alternative-main{padding:0 0 80px}
 .figma-chat-panel{position:fixed;bottom:160px;right:24px;z-index:60;display:flex;flex-direction:column;gap:16px;padding:24px;border:1px solid #bbd3de;border-radius:12px;background:#fff;width:300px;box-shadow:0 8px 30px #0002}
 .figma-site .figma-chat-panel>button{align-self:flex-end;font-size:24px}
+
+/* Shared Variant 1 artwork inside the designer's existing bento layouts. */
+.figma-site .figma-dayavi-card{isolation:isolate}
+.figma-site .figma-dayavi-card>.dayavi-artwork{z-index:-1}
+.figma-site .figma-dayavi-card .dayavi-particle-art{background:transparent}
+.figma-site .figma-transfer-art{position:absolute;inset:0 0 auto;aspect-ratio:416/560;pointer-events:none}
+.figma-site .figma-transfer-card>.fg89,.figma-site .figma-transfer-card>.fg65{z-index:1}
+@media(max-width:900px){.figma-site .fg59{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.figma-site .fg59{grid-template-columns:minmax(0,1fr)}}

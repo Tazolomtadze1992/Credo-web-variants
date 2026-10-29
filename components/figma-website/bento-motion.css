@@ -1,0 +1,13 @@
+/* Fixed card hit areas; a small, interruptible movement settles on hover. */
+.figma-products :is(.fg67, .fg73, .fg77, .fg91, .fg101, .fg105) {
+  transition: transform 240ms cubic-bezier(.25, 1, .5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .figma-products .fg61:hover .fg67 { transform: translateY(-3px) rotate(-1deg); }
+  .figma-products .fg61:hover .fg73 { transform: translateY(-4px) rotate(-2deg); }
+  .figma-products .fg61:hover .fg77 { transform: translateY(-4px) rotate(2deg); }
+  .figma-products .fg88:hover .fg91 { transform: translateY(-6px); }
+  .figma-products .fg98:hover .fg101 { transform: rotate(-2deg); }
+  .figma-products .fg98:hover .fg105 { transform: rotate(2deg); }
+}

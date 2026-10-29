@@ -4,14 +4,12 @@ const imgIconBuying = `${assetPathPrefix}/53c92.svg`;
 const imgIconRightArrow = `${assetPathPrefix}/1693c.svg`;
 const imgIconPlane = `${assetPathPrefix}/762de.svg`;
 import FigmaMotion from "../FigmaMotion";
+import SplitPayment from "../../SplitPayment";
+import TransferGlobe from "../../TransferGlobe";
 const imgFrame1707478505 = `${assetPathPrefix}/0be1e.png`;
 const imgFrame1707478517 = `${assetPathPrefix}/0d0ea.png`;
-const imgScreenshot202610230747351 = `${assetPathPrefix}/5f163.png`;
 const imgIcon = `${assetPathPrefix}/6c47d.svg`;
 const imgIcon1 = `${assetPathPrefix}/a7f45.svg`;
-const imgFrame1707478513 = `${assetPathPrefix}/ac631.svg`;
-const imgFrame1707478515 = `${assetPathPrefix}/fbb3a.svg`;
-const imgFrame1707478514 = `${assetPathPrefix}/68126.svg`;
 const imgIcon2 = `${assetPathPrefix}/2bf62.svg`;
 const imgFrame1707478506 = `${assetPathPrefix}/a6637.svg`;
 const imgFrame1707478507 = `${assetPathPrefix}/b1381.svg`;
@@ -106,7 +104,7 @@ export default function Products({ onAction }) {
               </FigmaMotion>
             </div>
           </div>
-          <div className="fg78" data-node-id="1:519" data-name="ანაბარი">
+          <div className="fg78 product-split figma-dayavi-card" data-node-id="1:519" data-name="ანაბარი">
             <div className="fg44" data-node-id="1:520">
               <p className="fg79" data-node-id="1:521">
                 {`და-ყა-ვი შენს ტემპში `}
@@ -122,25 +120,7 @@ export default function Products({ onAction }) {
                 <img alt="" className="fg6" src={imgIcon1} />
               </div>
             </button>
-            <div className="fg81" data-node-id="1:525">
-              <div className="fg82" data-node-id="1:526">
-                <div className="fg74">
-                  <div className="fg83">
-                    <img alt="" className="fg6" src={imgFrame1707478513} />
-                  </div>
-                </div>
-              </div>
-              <div className="fg84" data-node-id="1:528">
-                <img alt="" className="fg6" src={imgFrame1707478515} />
-              </div>
-              <div className="fg82" data-node-id="1:530">
-                <div className="fg85">
-                  <div className="fg86">
-                    <img alt="" className="fg6" src={imgFrame1707478514} />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <SplitPayment version="particles" />
           </div>
         </div>
         <div className="fg87" data-node-id="1:532">
@@ -234,7 +214,7 @@ export default function Products({ onAction }) {
               </div>
             </button>
           </div>
-          <div className="fg110" data-node-id="1:620" data-name="ანაბარი">
+          <div className="fg110 product-transfer figma-transfer-card" data-node-id="1:620" data-name="ანაბარი">
             <p className="fg89" data-node-id="1:621">
               ფულადი გზავნილები საზღვრების გარეშე
             </p>
@@ -246,9 +226,7 @@ export default function Products({ onAction }) {
                 <img alt="" className="fg6" src={imgIcon4} />
               </div>
             </button>
-            <div className="fg112" data-node-id="1:625" data-name="Screenshot 2026-10-23 074735 1">
-              <img alt="" className="fg113" src={imgScreenshot202610230747351} />
-            </div>
+            <div className="figma-transfer-art"><TransferGlobe /></div>
           </div>
         </div>
       </div>

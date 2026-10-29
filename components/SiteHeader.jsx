@@ -7,7 +7,7 @@ import { Cross2Icon, GlobeIcon, MagnifyingGlassIcon } from '@radix-ui/react-icon
 import { AnimatePresence, motion } from 'motion/react';
 import { LogoArt } from './DesignArt';
 import { useDesktopNavigationMotion } from './useDesktopNavigationMotion';
-import { consumerGroups, contactHref, englishHref, navigationSections, searchLinks, videoHref } from '../data/site-navigation.mjs';
+import { consumerGroups, contactHref, englishHref, navigationSections, searchLinks, spaceLinks, videoHref } from '../data/site-navigation.mjs';
 
 // These three navigation marks preserve the paths from the captured Stripe reference.
 function Chevron() {
@@ -57,6 +57,9 @@ function ConsumerPanel({ onChoose }) {
     <aside className="site-menu-sidebar"><Group group={byId('services')} desktop onChoose={onChoose} /><Featured onChoose={onChoose} /></aside>
     <div className="site-menu-footer"><NavigationMenu.Link asChild><a className="site-footer-link" href="/#products" onClick={onChoose}>ყველა სამომხმარებლო პროდუქტი<Arrow /></a></NavigationMenu.Link></div>
   </div>;
+}
+function SpacesPanel({ onChoose, desktop = false }) {
+  return <ul className="site-spaces-panel">{spaceLinks.map(item => <li key={item.href}><MenuLink item={item} desktop={desktop} onChoose={onChoose} showDetail={false} /></li>)}</ul>;
 }
 function CompactPanel({ section, onChoose }) {
   return <div className={`site-compact-panel site-panel-${section.id}`}>
@@ -109,7 +112,7 @@ function MobileMenu({ onOpen }) {
       <div className="site-mobile-heading">{section ? <button ref={backRef} className="site-back-button" onClick={() => chooseSection('')}><BackMark />უკან</button> : <Brand onClick={close} />}<Dialog.Close className="site-mobile-close" aria-label="მენიუს დახურვა"><Hamburger open /></Dialog.Close></div>
       <AnimatePresence initial={false} custom={direction}>
         <motion.div key={sectionId || 'root'} className="site-mobile-stage" custom={direction} variants={mobileMotion} initial="enter" animate="visible" exit="exit" transition={{ x: { duration: .5, ease: [.4, 0, .2, 1] }, opacity: { duration: .25 } }}>
-          {section ? <div className="site-mobile-products">{section.groups.map(group => <Group key={group.id} group={group} onChoose={close} />)}{sectionId === 'consumer' && <Featured onChoose={close} />}</div> : <nav aria-label="მობილური ნავიგაცია"><ul className="site-mobile-root-list">
+          {section ? <div className="site-mobile-products">{sectionId === 'space' ? <SpacesPanel onChoose={close} /> : section.groups.map(group => <Group key={group.id} group={group} onChoose={close} />)}{sectionId === 'consumer' && <Featured onChoose={close} />}</div> : <nav aria-label="მობილური ნავიგაცია"><ul className="site-mobile-root-list">
             {navigationSections.filter(item => item.id !== 'banking').map((item, index) => <li key={item.id}><button ref={index === 0 ? firstRef : undefined} onClick={() => chooseSection(item.id)}>{item.label}<Chevron /></button></li>)}
             <li><Destination href={contactHref} onClick={close}>კონტაქტი<Arrow /></Destination></li>
             <li><button onClick={() => chooseSection('banking')}>ინტერნეტბანკი<Chevron /></button></li>
@@ -125,7 +128,7 @@ function DesktopPanel({ section, value, visualValue, onChoose, panelRef }) {
   const index = navigationSections.findIndex(item => item.id === section.id);
   const visualIndex = navigationSections.findIndex(item => item.id === visualValue);
   return <NavigationMenu.Content forceMount ref={panelRef} className="site-nav-content" data-panel={section.id} data-visible={section.id === visualValue} data-side={index < visualIndex ? 'start' : 'end'} inert={section.id !== value ? true : undefined} aria-hidden={section.id !== value}>
-    {section.id === 'consumer' ? <ConsumerPanel onChoose={onChoose} /> : <CompactPanel section={section} onChoose={onChoose} />}
+    {section.id === 'consumer' ? <ConsumerPanel onChoose={onChoose} /> : section.id === 'space' ? <SpacesPanel onChoose={onChoose} desktop /> : <CompactPanel section={section} onChoose={onChoose} />}
   </NavigationMenu.Content>;
 }
 export default function SiteHeader() {

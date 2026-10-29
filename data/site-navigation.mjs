@@ -61,6 +61,11 @@ export const bankingLinks = [
   { label: 'ფიზიკური პირისთვის', detail: 'MyCredo — შენი ციფრული ბანკი', href: 'https://onelink.to/mycredo' },
   { label: 'ბიზნესისთვის', detail: 'Business MyCredo', href: 'https://onelink.to/business-mycredo' },
 ];
+export const spaceLinks = [
+  { label: 'რჩეული', href: 'https://credobank.ge/rcheuli' },
+  { label: 'ემიგრანტი', href: 'https://credobank.ge/emigrants' },
+  { label: 'ექსპატი', href: 'https://credobank.ge/expats' },
+];
 export const contactHref = 'https://credobank.ge/contact';
 export const videoHref = 'https://credobank.ge/services/video-banking';
 export const englishHref = 'https://credobank.ge/en';
@@ -69,6 +74,9 @@ export const navigationSections = [
   { id: 'business', label: 'ბიზნესი', groups: [
     { id: 'business-finance', label: 'ბიზნესის დაფინანსება', links: businessLinks.slice(0, 2) },
     { id: 'business-everyday', label: 'ყოველდღიური საბანკო სერვისები', links: businessLinks.slice(2) },
+  ]},
+  { id: 'space', label: 'სივრცე', groups: [
+    { id: 'spaces', label: 'სივრცე', links: spaceLinks },
   ]},
   { id: 'about', label: 'ჩვენ შესახებ', groups: [
     { id: 'about-bank', label: 'კრედო ბანკი', links: aboutLinks.slice(0, 3) },
@@ -84,5 +92,6 @@ export const searchLinks = [
   { label: 'კალკულატორი', detail: 'სესხი, ანაბარი და ვალუტის კურსი', href: '#calculator', keywords: 'გამოთვალე კურსი calculator' },
   { label: 'კონტაქტი', detail: 'სერვისცენტრები და დახმარება', href: contactHref, keywords: 'დახმარება მისამართი contact' },
   ...businessLinks.map(item => ({ ...item, keywords: 'ბიზნესი business' })),
+  ...spaceLinks.map(item => ({ ...item, keywords: 'სივრცე space' })),
   ...aboutLinks.map(item => ({ ...item, keywords: 'ჩვენ შესახებ about' })),
 ];
